@@ -1,0 +1,140 @@
+/* transactions.css */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Summary Section */
+.summary-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summary-box {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.income { border-left: 4px solid #10b981; }
+.expense { border-left: 4px solid #ef4444; }
+.balance { border-left: 4px solid #3b82f6; }
+
+/* Form Section */
+.transaction-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.transaction-form input,
+.transaction-form select {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.transaction-form button {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.transaction-form button:hover {
+  background-color: #2563eb;
+}
+
+/* CSV Buttons */
+input[type="file"] {
+  margin-top: 1rem;
+}
+
+button + button {
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+}
+
+button {
+  font-size: 0.95rem;
+}
+
+/* Filter Section */
+#filter {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 0.5rem;
+}
+
+/* Transactions Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+td button {
+  padding: 0.4rem 0.8rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+td button:hover {
+  background-color: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .transaction-form {
+    flex-direction: column;
+  }
+
+  .summary-boxes {
+    flex-direction: column;
+  }
+}

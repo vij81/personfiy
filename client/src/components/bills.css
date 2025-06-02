@@ -1,0 +1,103 @@
+/* bills.css */
+
+.bills-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.bills-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* Input section */
+.bills-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.bills-form input {
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 140px;
+}
+
+.bills-form button {
+  padding: 0.6rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.bills-form button:hover {
+  background-color: #1e40af;
+}
+
+/* Bill list */
+.bills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.bills-list li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+}
+
+.bills-list strong {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.bill-meta {
+  margin-bottom: 10px;
+  color: #6b7280;
+}
+
+.bill-actions button {
+  margin-right: 10px;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+}
+
+.bill-actions .mark-paid {
+  background-color: #10b981;
+  color: white;
+}
+
+.bill-actions .mark-paid:hover {
+  background-color: #059669;
+}
+
+.bill-actions .delete {
+  background-color: #ef4444;
+  color: white;
+}
+
+.bill-actions .delete:hover {
+  background-color: #b91c1c;
+}
