@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:8080/auth/login', formData);
+      const { data } = await axios.post('https://personfiy.onrender.com/auth/login', formData);
       alert('Login successful!');
       localStorage.setItem('token', data.token);
       window.location.href = '/dashboard';
@@ -33,7 +33,7 @@ const Login = () => {
       </form>
       <a href="/register">Don't have an account? Register</a>
       <hr />
-      <a href="http://localhost:8080/auth/google">
+      <a href="https://personfiy.onrender.com/auth/google">
         <button type="button">Login with Google</button>
       </a>
     </div>

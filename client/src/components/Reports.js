@@ -17,7 +17,7 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://personfiy.onrender.com';
 
 const Reports = () => {
   const [transactions, setTransactions] = useState([]);

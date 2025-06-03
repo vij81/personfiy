@@ -15,7 +15,7 @@ const Settings = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/users/profile', {
+        const res = await axios.get('https://personfiy.onrender.com/users/profile', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProfile({ name: res.data.name, email: res.data.email });
@@ -31,7 +31,7 @@ const Settings = () => {
   try {
     const token = localStorage.getItem('token');
     const res = await axios.put(
-      'http://localhost:8080/users/update-profile',
+      'https://personfiy.onrender.com/users/update-profile',
       { name: profile.name, email: profile.email },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -47,7 +47,7 @@ const Settings = () => {
   try {
     const token = localStorage.getItem('token');
     const res = await axios.put(
-      'http://localhost:8080/users/change-password',
+      'https://personfiy.onrender.com/users/change-password',
       {
         currentPassword: passwordData.currentPassword,
         newPassword: passwordData.newPassword,
@@ -70,7 +70,7 @@ const Settings = () => {
   const handleDeleteAccount = async () => {
     if (!window.confirm('Are you sure you want to delete your account? This cannot be undone.')) return;
     try {
-      await axios.delete('http://localhost:8080/users/delete', {
+      await axios.delete('https://personfiy.onrender.com/users/delete', {
         headers: { Authorization: `Bearer ${token}` }
       });
       localStorage.removeItem('token');

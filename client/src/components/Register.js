@@ -15,7 +15,7 @@ const Register = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:8080/auth/register', formData);
+      const { data } = await axios.post('https://personfiy.onrender.com/auth/register', formData);
       alert('Registration successful!');
       localStorage.setItem('token', data.token);
       window.location.href = '/dashboard';

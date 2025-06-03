@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './goal.css';
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://personfiy.onrender.com';
 
 const Goals = () => {
   const [goals, setGoals] = useState([]);

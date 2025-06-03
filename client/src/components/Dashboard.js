@@ -278,7 +278,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://personfiy.onrender.com';
 
 const Dashboard = () => {
   const [transactions, setTransactions] = useState([]);
