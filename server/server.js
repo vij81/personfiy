@@ -50,12 +50,5 @@ app.use("/bills", billRoutes);
 const notify = require("./routes/notifications");
 app.use("/notifications", notify);
 
-// Serve React frontend
-app.use(express.static(path.join(__dirname, "client/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
-
 app.listen(8080, () => console.log('Server running on port 8080'));
 
