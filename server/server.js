@@ -4,6 +4,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require("path");
 dotenv.config();
 require('./config/passport'); // ⬅️ Google OAuth strategy
 
@@ -49,11 +50,11 @@ app.use("/bills", billRoutes);
 const notify = require("./routes/notifications");
 app.use("/notifications", notify);
 
-const path = require('path');
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Serve React frontend
+app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(8080, () => console.log('Server running on port 8080'));
