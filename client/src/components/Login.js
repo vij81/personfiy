@@ -17,7 +17,7 @@ const Login = () => {
       const { data } = await axios.post('https://personfiy.onrender.com/auth/login', formData);
       alert('Login successful!');
       localStorage.setItem('token', data.token);
-      window.location.href = '/dashboard';
+      window.location.href = 'https://personfiy.netlify.app/dashboard';
     } catch (err) {
       alert(err.response?.data?.msg || 'Login failed');
     }

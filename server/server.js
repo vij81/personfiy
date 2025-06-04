@@ -36,7 +36,6 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
-const _dirname=path.resolve();
 
 require("./cron/billReminder");
 app.use('/auth', authRoutes);
