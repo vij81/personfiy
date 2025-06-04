@@ -18,7 +18,7 @@ router.get(
     const token = jwt.sign({ id: req.user._id }, jwtSecret, {
       expiresIn: '1d',
     });
-    res.redirect(`http://localhost:3000/dashboard?token=${token}`);
+    res.redirect(`https://personfiy.netlify.app/dashboard?token=${token}`);
   }
 );
 router.post('/register', async (req, res) => {

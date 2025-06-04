@@ -31,7 +31,7 @@ const Login = () => {
         <input type="password" name="password" placeholder="Password" required onChange={handleChange} />
         <button type="submit">Login</button>
       </form>
-      <a href="/register">Don't have an account? Register</a>
+      <a href="https://personfiy.netlify.app/register">Don't have an account? Register</a>
       <hr />
       <a href="https://personfiy.onrender.com/auth/google">
         <button type="button">Login with Google</button>

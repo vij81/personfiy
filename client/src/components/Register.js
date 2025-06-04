@@ -18,7 +18,7 @@ const Register = () => {
       const { data } = await axios.post('https://personfiy.onrender.com/auth/register', formData);
       alert('Registration successful!');
       localStorage.setItem('token', data.token);
-      window.location.href = '/dashboard';
+      window.location.href = 'https://personfiy.netlify.app/dashboard';
     } catch (err) {
       alert(err.response?.data?.msg || 'Registration failed');
     }
@@ -33,7 +33,7 @@ const Register = () => {
         <input type="password" name="password" placeholder="Password" required onChange={handleChange} />
         <button type="submit">Register</button>
       </form>
-      <a href="/">Already have an account? Login</a>
+      <a href="https://personfiy.netlify.app/">Already have an account? Login</a>
     </div>
   );
 };

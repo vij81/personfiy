@@ -75,7 +75,7 @@ const Settings = () => {
         headers: { Authorization: `Bearer ${token}` }
       });
       localStorage.removeItem('token');
-      window.location.href = '/'; // Redirect to login
+      window.location.href = 'https://personfiy.netlify.app/'; // Redirect to login
     } catch (err) {
       setMessage('Failed to delete account.');
     }
