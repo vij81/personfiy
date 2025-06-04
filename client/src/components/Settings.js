@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Settings.css';
 const Settings = () => {
@@ -30,11 +30,12 @@ const Settings = () => {
   e.preventDefault();
   try {
     const token = localStorage.getItem('token');
-    const res = await axios.put(
-      'https://personfiy.onrender.com/users/update-profile',
-      { name: profile.name, email: profile.email },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+    await axios.put(
+  'https://personfiy.onrender.com/users/update-profile',
+  { name: profile.name, email: profile.email },
+  { headers: { Authorization: `Bearer ${token}` } }
+);
+
     alert('Profile updated!');
     setEditing(false);
   } catch (err) {

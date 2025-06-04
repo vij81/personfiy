@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState,useCallback } from 'react';
 import axios from 'axios';
 import './Reports.css';
 import {
@@ -24,21 +24,20 @@ const Reports = () => {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const token = localStorage.getItem('token');
+const fetchTransactions = useCallback(async () => {
+  try {
+    const res = await axios.get(`${BASE_URL}/transactions`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    setTransactions(res.data);
+  } catch (err) {
+    alert('Failed to fetch transactions');
+  }
+}, [token]); // Add `token` as dependency
 
-  const fetchTransactions = async () => {
-    try {
-      const res = await axios.get(`${BASE_URL}/transactions`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setTransactions(res.data);
-    } catch (err) {
-      alert('Failed to fetch transactions');
-    }
-  };
-
-  useEffect(() => {
-    fetchTransactions();
-  }, []);
+useEffect(() => {
+  fetchTransactions();
+}, [fetchTransactions]); // ✅ No more warning
 
   // Apply filters
   const getFilteredTransactions = () => {

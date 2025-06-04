@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState,useCallback } from 'react';
 import axios from 'axios';
 import './Dashboard.css'
 const BASE_URL = 'https://personfiy.onrender.com';
@@ -13,18 +13,19 @@ const Transactions = () => {
   const token = localStorage.getItem('token');
 
   // Fetch all transactions
-  const fetchTransactions = async () => {
-    try {
-      const res = await axios.get(`${BASE_URL}/transactions`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const sortedTransactions = res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
-      setTransactions(sortedTransactions);
-      setFiltered(sortedTransactions);
-    } catch (err) {
-      alert('Failed to load transactions');
-    }
-  };
+  const fetchTransactions = useCallback(async () => {
+  try {
+    const res = await axios.get(`${BASE_URL}/transactions`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const sortedTransactions = res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    setTransactions(sortedTransactions);
+    setFiltered(sortedTransactions);
+  } catch (err) {
+    alert('Failed to load transactions');
+  }
+}, [token]); // ✅ token is the only external dependency
+
 
   // Handle add transaction
   const handleFormChange = (e) => {
@@ -91,8 +92,9 @@ const Transactions = () => {
   };
 
   useEffect(() => {
-    fetchTransactions();
-  }, []);
+  fetchTransactions();
+}, [fetchTransactions]); // ✅ Fix: Add fetchTransactions here
+
 
   const formatDate = (str) => new Date(str).toLocaleDateString();
 

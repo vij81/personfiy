@@ -273,9 +273,9 @@
 
 
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState,useCallback  } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
 const BASE_URL = 'https://personfiy.onrender.com';
@@ -301,28 +301,31 @@ const Dashboard = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (!token) {
-      navigate('/');
-    } else {
-      fetchTransactions();
-    }
-  }, [token]);
+  
+  const fetchTransactions = useCallback(async () => {
+  setLoading(true);
+  setError('');
+  try {
+    const res = await axios.get(`${BASE_URL}/transactions`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    setTransactions(res.data);
+  } catch (err) {
+    setError('Failed to load transactions');
+  } finally {
+    setLoading(false);
+  }
+}, [token]);
 
-  const fetchTransactions = async () => {
-    setLoading(true);
-    setError('');
-    try {
-      const res = await axios.get(`${BASE_URL}/transactions`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setTransactions(res.data);
-    } catch (err) {
-      setError('Failed to load transactions');
-    } finally {
-      setLoading(false);
-    }
-  };
+
+  useEffect(() => {
+  if (!token) {
+    navigate('/');
+  } else {
+    fetchTransactions();
+  }
+}, [token, navigate, fetchTransactions]);
+
 
   const handleFormChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
